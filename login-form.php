@@ -81,11 +81,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<?php include 'tittle.php';?>
+	<title>Login</title>
 </head>
 <body>
 
-	<h1><?php include 'top-heading.php';?></h1>
+	<h1>Login Form</h1>
 
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 		<fieldset>
@@ -115,9 +115,6 @@
 	<br>
 
 	<p>New user? <a href="registration-form.php">Click here</a> for registration.</p>
-	 <?php 
-	 include 'footer.php' ?>
-	
-
+	 
 </body>
 </html>
