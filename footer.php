@@ -1,1 +1,0 @@
-<p style="background: mediumvioletred;text-align: center;">&copy; 2005-<?php echo date("Y") ?></p>

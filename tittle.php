@@ -1,1 +1,0 @@
-<title><?php echo $PAGE_TITTLE?></title>
