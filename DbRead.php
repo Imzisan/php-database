@@ -7,5 +7,5 @@ function login($username,$password){
 	$sql->bind_param("ss",$username,$password);
 	$sql->execute();
 	$res = $sql->get_result();
-	return $res["num_rows"] === 1;
+	return $res ->num_rows === 1;
 }

@@ -1,6 +1,6 @@
 <?php 
-	include "config.php";
-	define("filepath", "user.json");
+	
+	require 'DbRead.php'
 	$userName = $password = "";
 	$isValid = true;
 	$userNameErr = $passwordErr = "";
@@ -27,36 +27,46 @@
 			$found=false;
 			$userName=test_input($userName);
 			$password=trim(htmlspecialchars($password));
-			$user_data = read();
-			$user_data = json_decode($user_data,true);
-			foreach ((object)$user_data as $temp) {
-				// code...
-				// 	if($userName === "IAMZ1SAN" && 
-				// $password === "123") {
-				// 	$found = true;
-					if($temp['username']=== $userName && $temp['password']===$password){
-						$found = true;
-					    break;
+			$response=login($username,$password)
+			if ($response){
+				session_start();
+			
+			$_SESSION['username']=$username;
+			header("Location: home.php")
+		}
+		else{
+			$error="Username or Password Incorrect";
+		}
+		// 	$user_data = read();
+		// 	$user_data = json_decode($user_data,true);
+		// 	foreach ((object)$user_data as $temp) {
+		// 		// code...
+		// 		// 	if($userName === "IAMZ1SAN" && 
+		// 		// $password === "123") {
+		// 		// 	$found = true;
+		// 			if($temp['username']=== $userName && $temp['password']===$password){
+		// 				$found = true;
+		// 			    break;
 
-			}else{
+		// 	}else{
 					 	
-					 	echo $error;
-					 }
+		// 			 	echo $error;
+		// 			 }
 
 			
-			}
+		// 	}
 
-			if($found) {
-				if(isset($_POST['rememberme'])) {
-					setcookie("uid", $userName, time() + 60*60*24*30);
-				}
-				session_start();
-				$_SESSION['uid'] = $userName;
+		// 	if($found) {
+		// 		if(isset($_POST['rememberme'])) {
+		// 			setcookie("uid", $userName, time() + 60*60*24*30);
+		// 		}
+		// 		session_start();
+		// 		$_SESSION['uid'] = $userName;
 
-				header("Location: home-page.php");
-			}
-					}
-		}
+		// 		header("Location: home-page.php");
+		// 	}
+		// 			}
+		// }
 	
 
 	function test_input($data) {
@@ -65,16 +75,7 @@
 			$data = htmlspecialchars($data);
 			return $data;
 	}
-	function read() {
-		$resource = fopen(filepath, "r");
-		$fz = filesize(filepath);
-		$fr = "";
-		if($fz > 0) {
-			$fr = fread($resource, $fz);
-		}
-		fclose($resource);
-		return $fr;
-	} 
+	
 ?>
 <!DOCTYPE html>
 <html>

@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<?php include 'tittle.php';?>
+	<title>Home</title>
 </head>
 <body>
 
@@ -20,8 +20,6 @@
 	<span><p style="color:green;text-align:center;background: mediumvioletred;">Click here to <a href="notice.php">View notice</a></p></span>
 	<?php 
 	 include 'logout-include.php' ?>
-	 <?php 
-	 include 'footer.php' ?>
 	
 	
 
