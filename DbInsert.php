@@ -1,9 +1,11 @@
 <?php 
-require 'DbConnect.php';
 
-function register($username,$password,$fullName,$gender,$birthDate,$presentAddress,$permanentAddress,$mobileNo,$email){
+function register($userName,$password,$fullName,$gender,$birthDate,$address,$mobileNo,$email){
 	$conn =connect();
-	$sql =$conn->prepare("INSERT INTO USERS (username,password,fullName,gender,birthDate,presentAddress,permanentAddress,mobileNo,email) VALUES (?,?,?,?,?,?,?,?,?)");
-	$sql->bind_param("sssssssss",$username,$password,$fullName,$gender,$birthDate,$presentAddress,$permanentAddress,$mobileNo,$email);
+	$sql =$conn->prepare("INSERT INTO USERS (userName,password,fullName,gender,birthDate,address,mobileNo,email) VALUES (?,?,?,?,?,?,?,?)");
+	$sql->bind_param("ssssssis",$userName,$password,$fullName,$gender,$birthDate,
+		$address,$mobileNo,$email);
 	return $sql->execute();
 }
+
+?>

@@ -13,11 +13,10 @@
 
 	<h1><?php include 'top-heading.php';?></h1>
 
-	<span><p><a href="view-profile.php">Click here</a> to view your profile</p></span>
 	
-	<button onclick="location.href='shop-products.php'">Shop Products</button>
+	
 	<br><br>
-	<span><p style="color:green;text-align:center;background: mediumvioletred;">Click here to <a href="notice.php">View notice</a></p></span>
+	<span><p style="color:green;text-align:center;background: mediumvioletred;">Click here to 
 	<?php 
 	 include 'logout-include.php' ?>
 	
